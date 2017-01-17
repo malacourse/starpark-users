@@ -1,6 +1,42 @@
 #Starpark User Service
 Simple CRUD with Spring Boot and Mongo
 
+##Externalize Configuration with OpenShift
+
+Create the ConfigMap object
+```sh
+oc create configmap users --from-file=src/main/resources/application.properties 
+```
+
+Create a volume the points to the ConfigMap in the deployment configuration
+```yaml
+    spec:
+      volumes:
+        -
+          name: config
+          configMap:
+            name: users
+            items:
+              - {key: application.properties, path: application.properties}
+      containers:
+        -
+```
+
+Mount the volume to the application container in the deployment configuration
+```yaml
+      containers:
+        -
+          volumeMounts:
+            -
+              name: config
+              mountPath: /deployments/config
+```
+
+Edit the ConfigMap and insert appropriate values for the environment
+```sh
+oc edit configmap users
+```
+
 ##Testing the API using cURL
 Get all users:
 ```sh
