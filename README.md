@@ -25,7 +25,7 @@ Create the ConfigMap object
 oc create configmap users --from-file=src/main/resources/application.properties 
 ```
 
-Create a volume the points to the ConfigMap in the deployment configuration
+Create a volume that points to the ConfigMap in the deployment configuration
 ```yaml
     spec:
       volumes:
@@ -52,6 +52,11 @@ Mount the volume to the application container in the deployment configuration
 Edit the ConfigMap and insert appropriate values for the environment
 ```sh
 oc edit configmap users
+```
+
+Redeploy the application
+```sh
+oc deploy users --latest
 ```
 
 ##Testing the API using cURL
