@@ -7,13 +7,10 @@ oc new-build --name=users openshift/fis-java-openshift:2.0~https://github.com/da
 ```
 
 ##Deploy a MongoDB Database
-
-Import a template
 ```sh
-oc create -f https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json
+oc new-app -f https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json \
+ -p DATABASE_SERVICE_NAME=users-db,MONGODB_USER=mongo-user,MONGODB_PASSWORD=mongo-passwd,MONGODB_DATABASE=users
 ```
-
-'Add to Project' in the OpenShift UI
 
 ##Deploy the Service
 ```sh
