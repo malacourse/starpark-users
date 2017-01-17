@@ -12,9 +12,10 @@ oc new-app -f https://raw.githubusercontent.com/openshift/origin/master/examples
  -p DATABASE_SERVICE_NAME=users-db,MONGODB_USER=mongo-user,MONGODB_PASSWORD=mongo-passwd,MONGODB_DATABASE=users
 ```
 
-##Deploy the Service
+##Deploy the Application
 ```sh
 oc new-app users
+oc expose service users
 ```
 
 ##Externalize Configuration with OpenShift
