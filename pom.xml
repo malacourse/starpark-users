@@ -25,14 +25,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- configure the versions you want to use here -->
 		<fabric8.version>2.2.170</fabric8.version>
 		<spring-boot.version>1.4.1.RELEASE</spring-boot.version>
 
-		<!-- maven plugin versions -->
+		<!-- Maven plugin versions -->
 		<fabric8.maven.plugin.version>3.1.80</fabric8.maven.plugin.version>
 		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+
+		<!-- Fabric8 configs -->
+		<fabric8.generator.name>users-fabric8</fabric8.generator.name>
+		<fabric8.generator.from>jboss-fuse-6-tech-preview/fis-java-openshift</fabric8.generator.from>
+
+		<!-- ability to specify an image stream is an upcoming feature
+		<fabric8.generator.fromMode>istag</fabric8.generator.fromMode>
+		<fabric8.generator.from>openshift/fis-java-openshift:2.0</fabric8.generator.from>
+		-->
 	</properties>
 
 	<dependencyManagement>
