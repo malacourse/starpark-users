@@ -34,7 +34,6 @@
 		<maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
 
 		<!-- Fabric8 configs -->
-		<fabric8.generator.name>users-fabric8</fabric8.generator.name>
 		<fabric8.generator.from>jboss-fuse-6-tech-preview/fis-java-openshift</fabric8.generator.from>
 
 		<!-- ability to specify an image stream is an upcoming feature
