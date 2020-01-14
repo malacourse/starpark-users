@@ -3,13 +3,13 @@ Simple CRUD with Spring Boot and Mongo
 
 ##Create a New s2i Build
 ```sh
-oc new-build --name=users openshift/fis-java-openshift:2.0~https://github.com/davgordo/starpark-users.git
+oc new-build --name=users openshift/fis-java-openshift:2.0~https://github.com/malacourse/starpark-users.git
 ```
 
 ##Deploy a MongoDB Database
 ```sh
 oc new-app -f https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mongodb-ephemeral-template.json \
- -p DATABASE_SERVICE_NAME=users-db,MONGODB_USER=mongo-user,MONGODB_PASSWORD=mongo-passwd,MONGODB_DATABASE=users
+ -p DATABASE_SERVICE_NAME=users-db -p MONGODB_USER=mongo-user -p MONGODB_PASSWORD=mongo-passwd -p MONGODB_DATABASE=users
 ```
 
 ##Deploy the Application
